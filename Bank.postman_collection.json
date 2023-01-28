@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "e52994df-17e6-49f5-80c2-7cfb1cdacf88",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    { \r\n\"name\" :\"Rakesh\",\r\n\"email\":\"nikhil@gmail.com\",\r\n\"mobileNumber\":\"9848113318\",\r\n\"age\" :30,\r\n\"income\" :10001,\r\n\"address\": \"Banglore, Karnataka\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/addCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"addCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":13,\r\n    \"name\":\"s\",\r\n \"startDate\" : \"25/11/2020\",\r\n \"endDate\": \"25/11/2030\",\r\n \"status\": true\r\n   \r\n \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/addProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assignSingleProduct(Operation from CustomerOwnedProducts side)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\" :1,\r\n    \"productId\" :13\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/assignProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"assignProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assignListOfProducts(Operation from Customer Side)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerOwnedProducts\":\r\n[\r\n  \r\n     \r\n       {\"productId\" :11},\r\n         {\"productId\" :12}\r\n           \r\n\r\n\r\n        \r\n       \r\n\r\n\r\n\r\n\r\n    \r\n  \r\n     \r\n    \r\n]\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/assignProduct/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"assignProduct",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/bank/getCustomerById/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"getCustomerById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerByIncome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/bank/getCustomerByIncome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"getCustomerByIncome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerByLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/bank/getCustomerByLocation/Dehradun",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"getCustomerByLocation",
+						"Dehradun"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateStatusOfAssigned Product(Operation in CustomerOwnedProducts)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/updateStatus/12/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"updateStatus",
+						"12",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProductById(Soft Delete from Products Table)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n  \"endDate\" :\"27/01/2023\",\r\n    \"status\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/bank/deleteProduct/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"deleteProduct",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductsByCustomerId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/bank/getProductsByCustomerId/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"getProductsByCustomerId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomersByProductId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/bank/getCustomersByProductId/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bank",
+						"getCustomersByProductId",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/bank/getProduct/11",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank/getProduct/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"getProduct",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetbyId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
